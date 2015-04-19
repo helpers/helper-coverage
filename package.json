@@ -1,0 +1,54 @@
+{
+  "name": "helper-coverage",
+  "description": "Template helper for including a code coverage report generaged by istanbul.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/helper-coverage",
+  "author": {
+    "name": "Jon Schlinkert",
+    "url": "https://github.com/jonschlinkert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonschlinkert/helper-coverage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/helper-coverage/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/jonschlinkert/helper-coverage/blob/master/LICENSE"
+  },
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "strip-ansi": "^2.0.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [
+    "assemble",
+    "assemblehelper",
+    "code",
+    "coverage",
+    "helper",
+    "helpers",
+    "include",
+    "istanbul",
+    "report",
+    "summary",
+    "template",
+    "templatehelper",
+    "verb",
+    "verbhelper"
+  ]
+}
