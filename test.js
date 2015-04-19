@@ -9,14 +9,20 @@
 
 /* deps:mocha */
 var fs = require('fs');
-var assert = require('assert');
 var should = require('should');
+var handlebars = require('handlebars');
 var coverage = require('./');
+
+var expected = fs.readFileSync('fixtures/expected.txt', 'utf8');
 
 describe('coverage', function () {
   it('should include a formatted coverage report:', function () {
-    var expected = fs.readFileSync('fixtures/expected.txt', 'utf8');
     coverage('fixtures/summary.txt').should.equal(expected);
+  });
+
+  it('should work as a handlebars helper:', function () {
+    handlebars.registerHelper('coverage', coverage);
+    handlebars.compile('{{coverage "fixtures/summary.txt"}}')().should.equal(expected);
   });
 
   it('should throw an error when the file cannot be found:', function () {
