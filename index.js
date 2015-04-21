@@ -16,5 +16,6 @@ module.exports = function coverage(fp) {
   }
 
   var str = fs.readFileSync(fp, 'utf8');
-  return stripAnsi(str).replace(/^=.*/gm, '');
+  str = stripAnsi(str).replace(/^=.*/gm, '');
+  return str.trim();
 };
