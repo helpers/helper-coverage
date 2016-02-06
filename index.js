@@ -8,14 +8,15 @@
 'use strict';
 
 var fs = require('fs');
-var stripAnsi = require('strip-ansi');
+var tryOpen = require('try-open');
+var stripColor = require('strip-color');
 
 module.exports = function coverage(fp) {
-  if (!fs.existsSync(fp)) {
+  if (typeof fp !== 'string') return '';
+  if (typeof tryOpen(fp, 'r') !== 'number') {
     throw new Error('helper-coverage cannot find: ' + fp);
   }
-
   var str = fs.readFileSync(fp, 'utf8');
-  str = stripAnsi(str).replace(/^=.*/gm, '');
+  str = stripColor(str).replace(/^=.*/gm, '');
   return str.trim();
 };
